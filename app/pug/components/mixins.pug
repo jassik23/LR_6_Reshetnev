@@ -1,0 +1,66 @@
+mixin createGallery(images='Нет картинок')
+    if images === 'нет картинок'
+        p=images
+    else
+        p
+            div(class="gallery")
+                each name in images
+                    img(alt="", src = name, class = "gallery__item")
+
+
+
+mixin createItem(header='None Header',items='None Items')
+    if images === 'None Items'
+        p=images
+    else
+        hr
+        a(id = header.id)
+            h2=header.name
+        p=header.description
+
+        each item in items
+            details
+                hr
+                summary=item[0]
+                img(alt='',src=item[1])
+                each insiderP in item[2]
+                    p=insiderP
+                hr
+        h3(class="toMenu")
+            a(href="#main") В начало
+
+mixin createNav(navigation='None Nav')
+    if navigation === 'None Nav'
+        p = navigation
+    else
+        div(class="menu")
+            each navig in navigation
+                a(href=navig[0])=navig[1]
+
+mixin createTable(header="noTable",inform="noData")
+    -let counter=1
+    if header === "noTable"
+        p=header
+    else
+        table
+            tr
+                each item in header
+                    if item[1] === 0
+                        th=item[0]
+                    else
+                        th(class=item[1])=item[0]
+            each line in inform
+                tr
+                    each cell in line
+                        case counter
+                            when 7
+                                td
+                                    img(alt="", src=cell)
+                            when 8
+                                td
+                                    a(href=cell, target="_blank")="Тык"
+                                -counter=0
+                            default
+                                td=cell
+                        -counter=counter+1
+

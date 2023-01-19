@@ -1,3 +1,6 @@
+include components/dataFile.pug
+include components/mixins
+
 <!DOCTYPE html>
 html
 	head
@@ -8,13 +11,32 @@ html
 		link(rel="stylesheet", href="css/main.css")
 	body
 
-		//- Introduce
-		p Successfully!
-		p Now you have Browser Sync, Pug, Stylus, Autoprefixer, jQuery, Bootstrap Reboot
-		p Folder src/ for PSD templates, JPG previews etc.
-		p Folder app/ for Pug and Stylus files. app/pug/index.pug will transpiled to dist/index.html. app/styl/main.styl will transpiled to dist/css/main.css
-		p Folder dist/ - distributive folder - here transpiled index.html and css/main.css, and you can add here other CSS, JS, IMG, FONTS files
-		p Have a nice coding :)
+
+
+		h2
+			a(id="main") ИгроЖанры
+		include components/header.pug
+		+createGallery(['img/traypic.jpeg','img/trayPic2.jpeg','img/trayPic3.jpg','img/trayPic4.jpg'])
+		hr
+		p(class="mainText")
+			|Игроки по всему миру любят проекты в разных жанрах: от незамысловатых пазлов до глобальных стратегий.
+			br
+			|Но как определить какой вид интерактивных развлечений больше понравится вам?
+			br
+			|Попробуем разобраться в статье и сделать подборку знаковых игр по жанровым принадлежностям.
+		p
+			|Довольно сложно пытаться выделить жанры компьютерных игр, так как постоянно происходит пересечение и смешение разных механик, а индустрия все еще достаточно молода. Есть несколько признанных классификаций, но самая свежая и полная из них была сформулирована в 2014 году.
+			br
+			br
+			|С этих пор зародились новые поджанры игр, а некоторые гибриды прочно осели среди устоявшихся классов. Разберем основные типы и попытаемся придать форму всему многообразию компьютерных развлечений.
+		+createNav(navigation)
+
+		+createItem(header1,block1)
+		+createItem(header2,block2)
+		+createItem(header3,block3)
+		+createItem(header4,block4)
+		+createItem(header5,block5)
+		+createItem(header6,block6)
 
 		//- Scripts
 		script(src="js/jquery-3.5.1.min.js")

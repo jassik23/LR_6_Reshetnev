@@ -1,13 +1,186 @@
-// Please delete before starting
+a.outerHref
+	text-align left
+	text-decoration none
+	border #164B69 thin solid
+	padding 5px
+
+a.outerHref hover
+	background-color #164B69
+	color white
+
 body
-	height 100vh
-	background-color: #0093E9;
-	background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
-	display flex
-	align-items center
-	justify-content center
-	font-size 16px
-	color #fff
+	width 80%
+	margin auto
+	background-color aliceblue
+
+h3.toMenu
 	text-align center
-	flex-direction column
-	padding 30px
+
+
+p
+	text-align center
+	font-size 1.05em
+
+a.h2
+	text-align center
+
+
+p.mainText
+	font-size 1.2em
+	font-weight bold
+	background-color lemonchiffon
+	border-radius 50% 0 50% 0
+	width 70%
+	margin auto
+
+
+h2
+	text-align center
+	color gray
+
+details > img
+	display block
+	width 50%
+	margin 5px auto
+	border thin solid black
+
+.menu
+	display flex
+	flex-wrap wrap
+	justify-content center
+	width 100%
+	background-color #E3E3E3
+
+.menu a
+	text-decoration none
+	color#164B69
+	font-weight bold
+	margin 5px
+	padding 5px
+	border-left #164B69 thin solid
+	border-right #164B69 thin solid
+
+
+.menu ahover
+	background-color  Lightgray
+	border-radius 50%
+
+
+details hr
+	background-color red
+	size 5px
+	align left
+	width 50%
+
+details
+	display block
+	margin 6px
+	width 30%
+
+details[open].table
+	width 100%
+	text-align left
+	border none
+
+details[open] summary
+	text-align left
+	font-weight bold
+
+details[open]
+	width 100%
+	text-align center
+	border thin black solid
+
+details[open] summary
+	text-align left
+
+.gallery
+	display flex
+	margin auto
+	flex-wrap wrap
+	align-content center
+	justify-content center
+
+
+.gallery__item
+	max-width 350px
+	margin 2px
+
+
+.spinner 
+	/* Size */
+	height 4rem
+	width 4rem
+	margin auto
+	/* Create a curve at the top */
+	border 4px solid #d1d5db
+	border-top-color #3b82f6
+	border-radius 50%
+
+	animation spinner 800ms linear infinite
+
+
+@keyframes spinner 
+	from 
+		transform rotate(0deg)
+	
+	to 
+		transform rotate(360deg)
+	
+
+table
+	border 1px solid black
+	padding 5px
+	margin auto
+
+td
+	border 1px solid black
+
+tr
+	text-align center
+
+th.logo
+	width 45px
+	height 50px
+
+th.platform
+	width 200px
+
+th.link
+	width 150px
+
+td > img
+	width 60px
+	height 90px
+
+
+@media (max-width 800px) 
+	.gallery__item
+		max-width none
+		width 100%
+	
+	body
+		width 100%
+		margin 5px
+	
+	details > img
+		width 100%
+		margin 5px
+	
+	.menu
+		display grid
+		grid-template-columns repeat(3,1fr)
+		justify-content center
+		text-align center
+		width 100%
+		margin 5px
+		background-color white
+	
+	.menu a
+		text-decoration none
+		color#164B69
+		font-weight bold
+		margin 5px
+		padding 5px
+		border black solid thin
+	
