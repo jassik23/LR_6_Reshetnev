@@ -1,5 +1,6 @@
 include components/DataTable
-    include components/mixins
+include components/mixins
+include components/dataFile
 <!DOCTYPE html>
 html
     head
@@ -10,4 +11,11 @@ html
         link(rel="stylesheet", href="css/main.css")
     body
         include components/header
+
+        details(class="table")
+            summary="Сортировка таблицы"
+            form
+                +createSort("Первый уровень","sortFirst",sort)
+                +createSort("Второй уровень","sortSecond",sort)
+                +createSort("Третий уровень","sortThird",sort)
         +createTable(headerOfTable,massive)

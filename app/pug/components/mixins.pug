@@ -64,3 +64,18 @@ mixin createTable(header="noTable",inform="noData")
                                 td=cell
                         -counter=counter+1
 
+mixin createSort(naming="NoSort",typeOfSet="noSet",column="noColumn")
+    -let counter=1
+    if naming === "NoSort"
+        p=naming
+    else
+        fieldset
+            legend=naming
+            each item in column
+                p(class="sort")
+                    input(type="radio",name=typeOfSet,value=counter)
+                    =item
+                br
+                -counter+=1
+            p(class="sort") "Сделать сортировку по убыванию?"
+                input(type="checkbox",name="descFirst")
