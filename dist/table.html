@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <title></title>
+    <link rel="stylesheet" href="css/bootstrap-reboot.min.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+  </head>
+  <body>
+    <h2><a id="main"></a></h2>
+    <p><a class="outerHref" href="index.html">ИгроЖанры</a><a class="outerHref" href="table.html">ИгроТоп</a><a class="outerHref" href="gallery.html">ИгроГалерея</a></p>
+    <hr/>
+    <details>
+      <summary class="text-002">Блок настроек показа</summary>
+      <div class="main-block">
+        <div class="block-01">
+          <div class="table">
+            <div class="title-1-1">
+              <p>График:</p>
+            </div>
+            <div class="left-edge-1">
+              <p class="title-1">Значение по оси OХ:</p>
+              <div>
+                <input id="inp2-1" type="radio" name="ox" value="жанр" checked="checked"/><span>Жанр</span>
+              </div>
+              <div>
+                <input id="inp2-2" type="radio" name="ox" value="жанр"/><span>Год выхода</span>
+                <p></p>
+              </div>
+            </div>
+            <div class="right-edge-1">
+              <p class="title-1">Результат:</p>
+              <div>
+                <input id="in-1" type="radio" name="result" value="макс" checked="checked"/><span>Максимальный рейтинг</span>
+              </div>
+              <div>
+                <input id="in-2" type="radio" name="result" value="мин"/><span>Минимальный рейтинг</span>
+                <p></p>
+              </div>
+            </div>
+            <button id="butt-graf">Построить</button>
+          </div>
+        </div>
+        <div class="block-02">
+          <div class="table class_01">
+            <div class="title-1-1">
+              <hr/>
+              <p>Фильтр:</p>
+            </div>
+            <div class="right-edge-1">
+              <p>Название:</p>
+              <p>
+                <input id="name" type="text" placeholder="Введите название"/>
+              </p>
+              <p>Жанр:</p>
+              <p>
+                <input id="name" type="text" placeholder="Введите жанр"/>
+              </p>
+              <p>Разработчик:</p>
+              <p>
+                <input id="name" type="text" placeholder="Введите название"/>
+              </p>
+              <p>Год выхода (от):</p>
+              <p>
+                <input id="name" type="text" placeholder="Введите год"/>
+              </p>
+              <p>Год выхода (до):</p>
+              <p>
+                <input id="name" type="text" placeholder="Введите год"/>
+              </p>
+              <p>Рейтинг (от):</p>
+              <p>
+                <input id="name" type="text" placeholder="Введите рейтинг"/>
+              </p>
+              <p>Рейтинг (до):</p>
+              <p>
+                <input id="name" type="text" placeholder="Введите рейтинг"/>
+              </p>
+            </div>
+            <button id="butt-filter">Найти</button>
+          </div>
+        </div>
+        <div class="block-03">
+          <div class="table-2">
+            <div class="title-1-2">
+              <hr/>
+              <p>Сортировка:</p>
+            </div>
+            <div class="center-edge-2" id="sort-opt">
+              <p>Первый уровень</p>
+              <p class="l1">
+                <select>
+                  <option value="0">Нет</option>
+                  <option value="1">Название</option>
+                  <option value="2">Год выхода</option>
+                  <option value="3">Жанр</option>
+                  <option value="4">Рейтинг</option>
+                  <option value="5">Разработчик</option>
+                </select>
+              </p>
+              <p class="no-ind">по убыванию?
+                <input type="checkbox" id="myCheckbox" name="myCheckbox"/>
+              </p>
+              <p>Второй уровень</p>
+              <p class="l2">
+                <select>
+                  <option value="0">Нет</option>
+                  <option value="1">Название</option>
+                  <option value="2">Год выхода</option>
+                  <option value="3">Жанр</option>
+                  <option value="4">Рейтинг</option>
+                  <option value="5">Разработчик</option>
+                </select>
+              </p>
+              <p class="no-ind">по убыванию?
+                <input type="checkbox" id="myCheckbox" name="myCheckbox"/>
+              </p>
+              <p>Третий уровень</p>
+              <p class="l3">
+                <select>
+                  <option value="0">Нет</option>
+                  <option value="1">Название</option>
+                  <option value="2">Год выхода</option>
+                  <option value="3">Жанр</option>
+                  <option value="4">Рейтинг</option>
+                  <option value="5">Разработчик</option>
+                </select>
+              </p>
+              <p class="no-ind">по убыванию?
+                <input type="checkbox" id="myCheckbox" name="myCheckbox"/>
+              </p>
+            </div>
+            <button id="butt-sort">Сортировать</button>
+          </div>
+        </div>
+      </div>
+      <div class="block-graf">
+        <p>График:</p>
+        <div id="graf-container">
+          <div class="curr-graff"></div>
+        </div>
+      </div>
+    </details>
+    <p class="text-001">Таблица</p>
+    <div id="bad-news">
+      <p>Записей по данному запросу не найдено</p>
+    </div>
+    <div id="table-container">
+      <table id="my-table">
+        <tr class="title">
+          <th>Название игры</th>
+          <th>Дата выхода</th>
+          <th>Жанр</th>
+          <th>Рейтинг</th>
+          <th>Разработчик</th>
+          <th class="platform">Платформы</th>
+        </tr>
+        <tr>
+          <td>The Elder Scrolls 5: Skyrim</td>
+          <td>11 ноября 2011г.</td>
+          <td>RPG (РПГ)</td>
+          <td>8.8</td>
+          <td>Bethesda Softworks</td>
+          <td>PC/PlayStation 3/Xbox 360</td>
+        </tr>
+        <tr>
+          <td>Grand Theft Auto 5</td>
+          <td>17 сентября 2013г.</td>
+          <td>Экшен/Шутеры</td>
+          <td>8.6</td>
+          <td>Rockstar Games</td>
+          <td>PC/PlayStation 5/PlayStation 4/Xbox Series X/S/Xbox One/PlayStation 3/Xbox 360</td>
+        </tr>
+        <tr>
+          <td>Minecraft</td>
+          <td>18 ноября 2011г.</td>
+          <td>Экшен/Симуляторы/Приключения/Пазлы</td>
+          <td>7.8</td>
+          <td>4J Studios/Markus Persson/Mojang</td>
+          <td>PC/PlayStation 4/Nintendo Switch/Xbox One/Android/iOS/PlayStation 3/PlayStation Vita/Xbox 360</td>
+        </tr>
+        <tr>
+          <td>Grand Theft Auto: San Andreas</td>
+          <td>29 октября 2004г.</td>
+          <td>Экшен</td>
+          <td>9.1</td>
+          <td>Rockstar North</td>
+          <td>PC/Android/iOS/PlayStation 2/Xbox 360</td>
+        </tr>
+        <tr>
+          <td>Grand Theft Auto 4</td>
+          <td>29 апреля 2008г.</td>
+          <td>Экшен</td>
+          <td>8.5</td>
+          <td>Rockstar North</td>
+          <td>PC/Xbox One/PlayStation 3/Xbox 360</td>
+        </tr>
+        <tr>
+          <td>Assassin's Creed 2</td>
+          <td>17 ноября 2009г.</td>
+          <td>Экшен/Приключения</td>
+          <td>9.2</td>
+          <td>Ubisoft</td>
+          <td>PC/PlayStation 3/Xbox 360</td>
+        </tr>
+        <tr>
+          <td>Mass Effect 2</td>
+          <td>29 января 2010г.</td>
+          <td>RPG (РПГ)</td>
+          <td>9.3</td>
+          <td>BioWare</td>
+          <td>PC/PlayStation 3/Xbox 360</td>
+        </tr>
+        <tr>
+          <td>Mafia 2</td>
+          <td>27 августа 2010г.</td>
+          <td>Экшен</td>
+          <td>8.6</td>
+          <td>2K Czech</td>
+          <td>PC/PlayStation 3/Xbox 360</td>
+        </tr>
+        <tr>
+          <td>Far Cry 3</td>
+          <td>30 ноября 2012г.</td>
+          <td>Экшен/Шутеры</td>
+          <td>8.6</td>
+          <td>Ubisoft Entertainment</td>
+          <td>PC/PlayStation 4/Xbox One/PlayStation 3/Xbox 360</td>
+        </tr>
+        <tr>
+          <td>Need for Speed: Most Wanted</td>
+          <td>15 ноября 2005г.</td>
+          <td>Гонки</td>
+          <td>8.7</td>
+          <td>EA Black Box</td>
+          <td>PC/Android/iOS/PlayStation 2/PlayStation Portable (PSP)/Xbox 360/Xbox</td>
+        </tr>
+        <tr>
+          <td>Call of Duty: Modern Warfare 2</td>
+          <td>10 ноября 2009г.</td>
+          <td>Экшен/Шутеры</td>
+          <td>8.6</td>
+          <td>Infinity Ward</td>
+          <td>PC/PlayStation 3/Xbox 360</td>
+        </tr>
+        <tr>
+          <td>Battlefield 3</td>
+          <td>28 октября 2011г.</td>
+          <td>Экшен/Шутеры</td>
+          <td>8.9</td>
+          <td>Digital Illusions Creative Entertainment</td>
+          <td>PC/Xbox One/PlayStation 3/Xbox 360</td>
+        </tr>
+        <tr>
+          <td>Mass Effect</td>
+          <td>20 ноября 2007г.</td>
+          <td>RPG (РПГ)</td>
+          <td>9.0</td>
+          <td>BioWare</td>
+          <td>PC/Xbox 360</td>
+        </tr>
+        <tr>
+          <td>Mass Effect 3</td>
+          <td>8 марта 2012г.</td>
+          <td>Экшен/Шутеры/RPG (РПГ)</td>
+          <td>8.9</td>
+          <td>BioWare</td>
+          <td>PC/PlayStation 3/Xbox 360</td>
+        </tr>
+        <tr>
+          <td>Assassin's Creed</td>
+          <td>13 ноября 2007г.</td>
+          <td>Экшен/Приключения</td>
+          <td>8.1</td>
+          <td>Ubisoft Montreal</td>
+          <td>PC/PlayStation 3/Xbox 360</td>
+        </tr>
+        <tr>
+          <td>Fallout 3</td>
+          <td>31 октября 2008г.</td>
+          <td>RPG (РПГ)</td>
+          <td>8.5</td>
+          <td>Bethesda Softworks</td>
+          <td>PC/PlayStation 3/Xbox 360</td>
+        </tr>
+        <tr>
+          <td>Portal 2</td>
+          <td>21 апреля 2011г.</td>
+          <td>Приключения/Пазлы</td>
+          <td>9.2</td>
+          <td>Valve Software</td>
+          <td>PC/Xbox One/PlayStation 3/Xbox 360</td>
+        </tr>
+        <tr>
+          <td>Dragon Age: Origins</td>
+          <td>3 ноября 2009г.</td>
+          <td>RPG (РПГ)</td>
+          <td>9.4</td>
+          <td>BioWare</td>
+          <td>PC/Xbox One/PlayStation 3/Xbox 360</td>
+        </tr>
+        <tr>
+          <td>Call of Duty 4: Modern Warfare</td>
+          <td>9 ноября 2007г.</td>
+          <td>Экшен/Шутеры</td>
+          <td>8.7</td>
+          <td>Infinity Ward</td>
+          <td>PC/PlayStation 3/Xbox 360</td>
+        </tr>
+        <tr>
+          <td>Deus Ex: Human Revolution</td>
+          <td>26 августа 2011г.</td>
+          <td>Экшен/RPG (РПГ)</td>
+          <td>9.3</td>
+          <td>Eidos</td>
+          <td>PC/Xbox One/PlayStation 3/Xbox 360/Nintendo Wii</td>
+        </tr>
+        <tr>
+          <td>Metro 2033</td>
+          <td>19 марта 2010г.</td>
+          <td>Экшен/Шутеры</td>
+          <td>8.4</td>
+          <td>4A Games</td>
+          <td>PC/Nintendo Switch/Xbox 360</td>
+        </tr>
+        <tr>
+          <td>Half-Life 2</td>
+          <td>16 ноября 2004г.</td>
+          <td>Экшен/Шутеры</td>
+          <td>9.2</td>
+          <td>Valve Software</td>
+          <td>PC/Android/Xbox/Mac/Linux</td>
+        </tr>
+        <tr>
+          <td>S.T.A.L.K.E.R.: Shadow of Chernobyl</td>
+          <td>20 марта 2007г.</td>
+          <td>Экшен/Шутеры</td>
+          <td>8.6</td>
+          <td>GSC Game World</td>
+          <td>PC</td>
+        </tr>
+        <tr>
+          <td>The Witcher 2: Assassins of Kings</td>
+          <td>17 мая 2011г.</td>
+          <td>RPG (РПГ)</td>
+          <td>8.9</td>
+          <td>CD Projekt RED</td>
+          <td>PC/Xbox 360</td>
+        </tr>
+        <tr>
+          <td>The Witcher 3: Wild Hunt</td>
+          <td>19 мая 2015г.</td>
+          <td>RPG (РПГ)</td>
+          <td>8.6</td>
+          <td>CD Projekt RED</td>
+          <td>PC/PlayStation 5/PlayStation 4/Nintendo Switch/Xbox Series X/S/Xbox One</td>
+        </tr>
+        <tr>
+          <td>Dishonored</td>
+          <td>12 октября 2012г.</td>
+          <td>Экшен</td>
+          <td>9.0</td>
+          <td>Arkane Studios</td>
+          <td>PC/PlayStation 4/PlayStation 3/Xbox 360</td>
+        </tr>
+        <tr>
+          <td>S.T.A.L.K.E.R. 2: Heart of Chornobyl</td>
+          <td>8 декабря 2022г.</td>
+          <td>Экшен/Шутеры/Приключения</td>
+          <td>8.1</td>
+          <td>GSC Game World</td>
+          <td>PC/PlayStation 5/Xbox Series X/S</td>
+        </tr>
+        <tr>
+          <td>Diablo 3</td>
+          <td>15 мая 2012г.</td>
+          <td>RPG (РПГ)</td>
+          <td>8.0</td>
+          <td>Blizzard Entertainment</td>
+          <td>PC/PlayStation 4/Nintendo Switch/PlayStation 3/Xbox 360/Mac</td>
+        </tr>
+        <tr>
+          <td>BioShock Infinite</td>
+          <td>26 марта 2013г.</td>
+          <td>Экшен/Шутеры</td>
+          <td>8.9</td>
+          <td>Irrational Games</td>
+          <td>PC/Nintendo Switch/PlayStation 3/Xbox 360</td>
+        </tr>
+        <tr>
+          <td>Warcraft 3: The Frozen Throne</td>
+          <td>22 июня 2003г.</td>
+          <td>RPG (РПГ)/Стратегии</td>
+          <td>8.8</td>
+          <td>Blizzard Entertainment</td>
+          <td>PC</td>
+        </tr>
+        <tr>
+          <td>Fahrenheit</td>
+          <td>20 сентября 2005г.</td>
+          <td>Приключения</td>
+          <td>9.1</td>
+          <td>Quantic Dream</td>
+          <td>PC/PlayStation 4/Android/iOS/Mac</td>
+        </tr>
+        <tr>
+          <td>Grand Theft Auto: Vice City</td>
+          <td>8 ноября 2002г.</td>
+          <td>Экшен</td>
+          <td>9.1</td>
+          <td>Rockstar North</td>
+          <td>PC/PlayStation 4/Android/iOS/PlayStation 3/PlayStation 2/Xbox/Mac</td>
+        </tr>
+        <tr>
+          <td>Batman: Arkham City</td>
+          <td>21 октября 2011г.</td>
+          <td>Экшен</td>
+          <td>9.1</td>
+          <td>Rocksteady Studios</td>
+          <td>PC/PlayStation 3/Xbox 360</td>
+        </tr>
+        <tr>
+          <td>Fallout: New Vegas</td>
+          <td>22 октября 2010г.</td>
+          <td>Экшен/RPG (РПГ)/Стратегии</td>
+          <td>8.6</td>
+          <td>Obsidian Entertainment</td>
+          <td>PC/Xbox One/PlayStation 3/Xbox 360</td>
+        </tr>
+        <tr>
+          <td>BioShock</td>
+          <td>21 августа 2007г.</td>
+          <td>Экшен/Шутеры</td>
+          <td>8.9</td>
+          <td>2K Boston</td>
+          <td>PC/Nintendo Switch/iOS/PlayStation 3/Xbox 360</td>
+        </tr>
+        <tr>
+          <td>Cyberpunk 2077</td>
+          <td>10 декабря 2020г.</td>
+          <td>Экшен/RPG (РПГ)</td>
+          <td>7.2</td>
+          <td>CD Projekt RED/Crunching Koalas/QLOC/Testronic</td>
+          <td>PC/PlayStation 5/PlayStation 4/Xbox Series X/S/Xbox One/Google Stadia</td>
+        </tr>
+        <tr>
+          <td>Assassin's Creed: Brotherhood</td>
+          <td>19 ноября 2010г.</td>
+          <td>Экшен/Приключения</td>
+          <td>8.4</td>
+          <td>Ubisoft</td>
+          <td>PC/Xbox One/PlayStation 3/Xbox 360</td>
+        </tr>
+        <tr>
+          <td>The Witcher</td>
+          <td>30 октября 2007г.</td>
+          <td>RPG (РПГ)</td>
+          <td>9.1</td>
+          <td>CD Projekt RED</td>
+          <td>PC</td>
+        </tr>
+        <tr>
+          <td>Tomb Raider (2013)</td>
+          <td>5 марта 2013г.</td>
+          <td>Экшен/Шутеры/RPG (РПГ)</td>
+          <td>8.7</td>
+          <td>Crystal Dynamics</td>
+          <td>PC/PlayStation 3/Xbox 360/Mac/Google Stadia</td>
+        </tr>
+        <tr>
+          <td>StarCraft 2: Wings of Liberty</td>
+          <td>31 июля 2010г.</td>
+          <td>Стратегии/MMO</td>
+          <td>9.1</td>
+          <td>Blizzard Entertainment</td>
+          <td>PC</td>
+        </tr>
+        <tr>
+          <td>Mirror's Edge</td>
+          <td>14 ноября 2008г.</td>
+          <td>Экшен</td>
+          <td>8.3</td>
+          <td>EA DICE</td>
+          <td>PC/PlayStation 3/Xbox 360</td>
+        </tr>
+        <tr>
+          <td>The Elder Scrolls IV: Oblivion</td>
+          <td>20 марта 2006г.</td>
+          <td>Экшен/RPG (РПГ)</td>
+          <td>9.0</td>
+          <td>Bethesda Softworks</td>
+          <td>PC/Xbox One/PlayStation 3/Xbox 360</td>
+        </tr>
+        <tr>
+          <td>Crysis 2</td>
+          <td>25 марта 2011г.</td>
+          <td>Экшен/Шутеры</td>
+          <td>7.8</td>
+          <td>Crytek</td>
+          <td>PC/Xbox One/PlayStation 3/Xbox 360</td>
+        </tr>
+        <tr>
+          <td>Batman: Arkham Asylum</td>
+          <td>25 августа 2009г.</td>
+          <td>Экшен</td>
+          <td>9.1</td>
+          <td>Rocksteady Studios</td>
+          <td>PC/PlayStation 3/Xbox 360</td>
+        </tr>
+        <tr>
+          <td>Dead Space</td>
+          <td>24 октября 2008г.</td>
+          <td>Хорроры (ужасы)/Экшен</td>
+          <td>8.6</td>
+          <td>EA Games</td>
+          <td>PC/Android/PlayStation 3/Xbox 360</td>
+        </tr>
+        <tr>
+          <td>Battlefield: Bad Company 2</td>
+          <td>5 марта 2010г.</td>
+          <td>Экшен/Шутеры</td>
+          <td>8.4</td>
+          <td>Digital Illusions</td>
+          <td>PC/Xbox One/PlayStation 3/Xbox 360</td>
+        </tr>
+        <tr>
+          <td>S.T.A.L.K.E.R.: Call of Pripyat</td>
+          <td>3 октября 2009г.</td>
+          <td>Экшен/Шутеры</td>
+          <td>8.3</td>
+          <td>GSC Game World</td>
+          <td>PC</td>
+        </tr>
+        <tr>
+          <td>L.A. Noire</td>
+          <td>17 мая 2011г.</td>
+          <td>Экшен/Симуляторы/Приключения</td>
+          <td>8.8</td>
+          <td>Team Bondi</td>
+          <td>PC/PlayStation 4/Nintendo Switch/Xbox One/PlayStation 3/Xbox 360</td>
+        </tr>
+        <tr>
+          <td>Portal</td>
+          <td>10 октября 2007г.</td>
+          <td>Приключения/Пазлы</td>
+          <td>9.1</td>
+          <td>Valve Corporation</td>
+          <td>PC/Android/PlayStation 3/Xbox 360</td>
+        </tr>
+        <tr>
+          <td>Left 4 Dead 2</td>
+          <td>17 ноября 2009г.</td>
+          <td>Экшен/Шутеры</td>
+          <td>7.7</td>
+          <td>Valve Software</td>
+          <td>PC/Xbox 360</td>
+        </tr>
+        <tr>
+          <td>Max Payne 3</td>
+          <td>1 июня 2012г.</td>
+          <td>Экшен</td>
+          <td>8.1</td>
+          <td>Rockstar Vancouver</td>
+          <td>PC/PlayStation 3/Xbox 360</td>
+        </tr>
+        <tr>
+          <td>Warcraft III: Reign of Chaos</td>
+          <td>14 июня 2002г.</td>
+          <td>RPG (РПГ)/Стратегии</td>
+          <td>9.0</td>
+          <td>Blizzard Entertainment</td>
+          <td>PC</td>
+        </tr>
+        <tr>
+          <td>Dead Space 2</td>
+          <td>25 января 2011г.</td>
+          <td>Хорроры (ужасы)/Экшен</td>
+          <td>8.8</td>
+          <td>Visceral Games</td>
+          <td>PC/Xbox One/PlayStation 3/Xbox 360</td>
+        </tr>
+        <tr>
+          <td>Assassin's Creed: Revelations</td>
+          <td>29 ноября 2011г.</td>
+          <td>Экшен</td>
+          <td>8.3</td>
+          <td>Ubisoft Montreal</td>
+          <td>PC/Xbox One/PlayStation 3/Xbox 360</td>
+        </tr>
+        <tr>
+          <td>Call of Duty: Modern Warfare 3</td>
+          <td>8 ноября 2011г.</td>
+          <td>Экшен/Шутеры</td>
+          <td>7.0</td>
+          <td>Infinity Ward</td>
+          <td>PC/PlayStation 3/Xbox 360</td>
+        </tr>
+        <tr>
+          <td>Metro: Last Light</td>
+          <td>17 мая 2013г.</td>
+          <td>Экшен/Шутеры</td>
+          <td>8.5</td>
+          <td>4A Games</td>
+          <td>PC/Nintendo Switch/PlayStation 3/Xbox 360</td>
+        </tr>
+        <tr>
+          <td>Fable: The Lost Chapters</td>
+          <td>8 октября 2004г.</td>
+          <td>Экшен/RPG (РПГ)</td>
+          <td>9.6</td>
+          <td>Lionhead Studios</td>
+          <td>PC/Xbox 360</td>
+        </tr>
+        <tr>
+          <td>Half-Life 2: Episode Two</td>
+          <td>10 октября 2007г.</td>
+          <td>Экшен/Шутеры</td>
+          <td>9.1</td>
+          <td>Valve Software</td>
+          <td>PC/PlayStation 3/Xbox 360</td>
+        </tr>
+        <tr>
+          <td>Prototype</td>
+          <td>5 июня 2009г.</td>
+          <td>Экшен</td>
+          <td>7.3</td>
+          <td>Radical Entertainment</td>
+          <td>PC/PlayStation 4/Xbox One/PlayStation 3/Xbox 360</td>
+        </tr>
+      </table>
+    </div>
+  </body>
+  <footer>
+    <p></p>
+    <hr/>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="js/js-3.js"></script>
+    <script src="js/js-3-diagramm.js"></script>
+  </footer>
+</html>

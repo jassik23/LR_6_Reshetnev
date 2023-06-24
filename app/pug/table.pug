@@ -12,10 +12,98 @@ html
     body
         include components/header
 
-        details(class="table")
-            summary="Сортировка таблицы"
-            form
-                +createSort("Первый уровень","sortFirst",sort)
-                +createSort("Второй уровень","sortSecond",sort)
-                +createSort("Третий уровень","sortThird",sort)
-        +createTable(headerOfTable,massive)
+        details
+            summary.text-002 Блок настроек показа
+            .main-block
+                .block-01
+                    .table
+                        .title-1-1
+                            p График:
+                        .left-edge-1
+                            p.title-1 Значение по оси OХ:
+                            div
+                                input#inp2-1(type="radio", name="ox", value="жанр", checked)
+                                span Жанр
+                            div
+                                input#inp2-2(type="radio", name="ox", value="жанр")
+                                span Год выхода
+                                p
+                        .right-edge-1
+                            p.title-1 Результат:
+                            div
+                                input#in-1(type="radio", name="result", value="макс", checked)
+                                span Максимальный рейтинг
+                            div
+                                input#in-2(type="radio", name="result", value="мин")
+                                span Минимальный рейтинг
+                                p
+                        button#butt-graf Построить
+                .block-02
+                    .table.class_01
+                        .title-1-1
+                            hr
+                            p Фильтр:
+                        .right-edge-1
+                            p Название:
+                            p
+                                input#name(type="text", placeholder="Введите название")
+                            p Жанр:
+                            p
+                                input#name(type="text", placeholder="Введите жанр")
+                            p Разработчик:
+                            p
+                                input#name(type="text", placeholder="Введите название")
+                            p Год выхода (от):
+                            p
+                                input#name(type="text", placeholder="Введите год")
+                            p Год выхода (до):
+                            p
+                                input#name(type="text", placeholder="Введите год")
+                            p Рейтинг (от):
+                            p
+                                input#name(type="text", placeholder="Введите рейтинг")
+                            p Рейтинг (до):
+                            p
+                                input#name(type="text", placeholder="Введите рейтинг")
+                        button#butt-filter Найти
+                .block-03
+                    .table-2
+                        .title-1-2
+                            hr
+                            p Сортировка:
+                        .center-edge-2#sort-opt
+                            p Первый уровень
+                            p.l1
+                                +my-option
+                            p.no-ind по убыванию?
+                                input(type="checkbox" id="myCheckbox" name="myCheckbox")
+                            p Второй уровень
+                            p.l2
+                                +my-option
+                            p.no-ind по убыванию?
+                                input(type="checkbox" id="myCheckbox" name="myCheckbox")
+                            p Третий уровень
+                            p.l3
+                                +my-option
+                            p.no-ind по убыванию?
+                                input(type="checkbox" id="myCheckbox" name="myCheckbox")
+
+                        button#butt-sort Сортировать
+
+            div.block-graf
+                p График:
+                div#graf-container
+                    div.curr-graff
+
+        p.text-001 Таблица
+
+        #bad-news
+            p Записей по данному запросу не найдено
+        #table-container
+            +createTable(headerOfTable,massive)
+    footer
+        p
+        hr
+        script(src="https://d3js.org/d3.v5.min.js")
+        script(src="js/js-3.js")
+        script(src="js/js-3-diagramm.js")

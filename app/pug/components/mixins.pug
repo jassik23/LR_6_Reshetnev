@@ -42,8 +42,8 @@ mixin createTable(header="noTable",inform="noData")
     if header === "noTable"
         p=header
     else
-        table
-            tr
+        table#my-table
+            tr.title
                 each item in header
                     if item[1] === 0
                         th=item[0]
@@ -52,30 +52,15 @@ mixin createTable(header="noTable",inform="noData")
             each line in inform
                 tr
                     each cell in line
-                        case counter
-                            when 7
-                                td
-                                    img(alt="", src=cell)
-                            when 8
-                                td
-                                    a(href=cell, target="_blank")="Тык"
-                                -counter=0
-                            default
-                                td=cell
-                        -counter=counter+1
+                        td=cell
 
-mixin createSort(naming="NoSort",typeOfSet="noSet",column="noColumn")
-    -let counter=1
-    if naming === "NoSort"
-        p=naming
-    else
-        fieldset
-            legend=naming
-            each item in column
-                p(class="sort")
-                    input(type="radio",name=typeOfSet,value=counter)
-                    =item
-                br
-                -counter+=1
-            p(class="sort") "Сделать сортировку по убыванию?"
-                input(type="checkbox",name="descFirst")
+
+
+mixin my-option
+    select
+        option(value=0) Нет
+        option(value=1) Название
+        option(value=2) Год выхода
+        option(value=3) Жанр
+        option(value=4) Рейтинг
+        option(value=5) Разработчик

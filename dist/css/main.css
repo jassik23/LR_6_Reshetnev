@@ -171,6 +171,9 @@ td > img {
     border: #000 solid thin;
   }
 }
+.curr-graff {
+  height: 350px;
+}
 @-webkit-keyframes spinner {
   from {
     transform: rotate(0deg);
